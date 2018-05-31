@@ -5,10 +5,16 @@ import Slides from "../components/Slides";
 
 const SLIDE_DATA = [
   {
-    text: "Welcome to JobApp"
+    text: "Welcome to JobApp",
+    color: "#03a9f4"
   },
   {
-    text: "Set your location, then swipe away"
+    text: "Use this to get a job",
+    color: "#009688"
+  },
+  {
+    text: "Set your location, then swipe away",
+    color: "#03a9f4"
   }
 ];
 
