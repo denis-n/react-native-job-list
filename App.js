@@ -5,7 +5,10 @@ import {
   createStackNavigator
 } from "react-navigation";
 import { Constants } from "expo";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
+import store from "./store";
 import AuthScreen from "./screens/AuthScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import MapScreen from "./screens/MapScreen";
@@ -59,9 +62,11 @@ const MainNavigator = createBottomTabNavigator({
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <MainNavigator />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <MainNavigator />
+      </View>
+    </Provider>
   );
 };
 
