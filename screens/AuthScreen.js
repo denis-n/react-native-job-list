@@ -13,12 +13,10 @@ function mapStateToProps({ auth }) {
 class AuthScreen extends Component {
   componentDidMount() {
     this.props.facebookLogin();
-
-    this.onAuthComplete(this.props);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.onAuthComplete(nextProps);
+  componentDidUpdate() {
+    this.onAuthComplete(this.props);
   }
 
   onAuthComplete(props) {
@@ -28,15 +26,7 @@ class AuthScreen extends Component {
   }
 
   render() {
-    // AsyncStorage.getItem("fb_token", (err, res) => {
-    //   console.log("token", res);
-    // });
-
-    return (
-      <View>
-        <Text>Auth</Text>
-      </View>
-    );
+    return <View />;
   }
 }
 
