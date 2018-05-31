@@ -6,8 +6,10 @@ class Slides extends Component {
   renderItems = () => {
     const { data, onComplete } = this.props;
 
+    const lastIndex = data.length - 1;
+
     return data.map((item, index) => {
-      const isLast = index === data.length - 1;
+      const isLast = index === lastIndex;
 
       return (
         <View
