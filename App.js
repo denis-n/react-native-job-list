@@ -46,19 +46,26 @@ const ReviewNavigator = createStackNavigator(
   }
 );
 
-const MainNavigator = createBottomTabNavigator({
-  welcome: WelcomeScreen,
+const MainNavigator = createBottomTabNavigator(
+  {
+    welcome: WelcomeScreen,
 
-  auth: AuthScreen,
+    auth: AuthScreen,
 
-  main: createBottomTabNavigator({
-    map: MapScreen,
+    main: createBottomTabNavigator({
+      map: MapScreen,
 
-    deck: DeckScreen,
+      deck: DeckScreen,
 
-    review: ReviewNavigator
-  })
-});
+      review: ReviewNavigator
+    })
+  },
+  {
+    navigationOptions: {
+      tabBarVisible: false
+    }
+  }
+);
 
 const App = () => {
   return (
