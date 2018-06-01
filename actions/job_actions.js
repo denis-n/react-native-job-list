@@ -3,6 +3,7 @@ import reverseGeocode from "latlng-to-zip";
 import qs from "qs";
 
 import * as types from "./types";
+import fakeData from "./jobs";
 
 const JOB_QUERY_PARAMS = {
   publisher: "4201738803816157",
@@ -27,21 +28,21 @@ const buildJobsUrl = zip => {
 export const fetchJobs = region => {
   return async dispatch => {
     // convert region to zip code
+
     try {
       let zip = await reverseGeocode(region);
 
       const url = buildJobsUrl(zip);
 
-      let { data } = await axios.get(url);
+      // let { data } = await axios.get(url);
+      const { results } = fakeData(region);
 
       dispatch({
         type: types.FETCH_JOBS,
-        payload: data
+        payload: results
       });
-
-      console.log(data);
     } catch (error) {
-      console.log("error", error);
+      console.log("indeed error", error);
     }
   };
 };
