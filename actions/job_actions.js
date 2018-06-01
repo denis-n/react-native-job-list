@@ -30,9 +30,9 @@ export const fetchJobs = region => {
     // convert region to zip code
 
     try {
-      let zip = await reverseGeocode(region);
+      // let zip = await reverseGeocode(region);
 
-      const url = buildJobsUrl(zip);
+      // const url = buildJobsUrl(zip);
 
       // let { data } = await axios.get(url);
       const { results } = fakeData(region);
@@ -44,5 +44,12 @@ export const fetchJobs = region => {
     } catch (error) {
       console.log("indeed error", error);
     }
+  };
+};
+
+export const likeJob = job => {
+  return {
+    type: types.LIKE_JOB,
+    payload: job
   };
 };

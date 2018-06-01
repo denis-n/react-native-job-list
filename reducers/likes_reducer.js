@@ -1,15 +1,11 @@
 import * as types from "../actions/types";
 
-export const INITIAL_STATE = {
-  results: []
-};
+const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case types.FETCH_JOBS:
-      return {
-        results: action.payload
-      };
+    case types.LIKE_JOB:
+      return {};
 
     default:
       return state;
