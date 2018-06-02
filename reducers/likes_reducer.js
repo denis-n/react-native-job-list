@@ -9,6 +9,9 @@ export default (state = INITIAL_STATE, action) => {
 
       return [action.payload, ...state.filter(item => item.jobkey !== jobkey)];
 
+    case types.CLEAR_LIKED_JOBS:
+      return INITIAL_STATE;
+
     default:
       return state;
   }
