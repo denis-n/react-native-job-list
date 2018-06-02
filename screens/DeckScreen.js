@@ -53,7 +53,7 @@ class DeckScreen extends Component {
   };
 
   handleJobLike = job => {
-    //this.props.likeJob(job)
+    this.props.likeJob(job);
   };
 
   renderJobs = () => {
