@@ -7,6 +7,7 @@ import {
 import { Constants } from "expo";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { Icon } from "react-native-elements";
 
 import store from "./store";
 import AuthScreen from "./screens/AuthScreen";
@@ -52,13 +53,31 @@ const MainNavigator = createBottomTabNavigator(
 
     auth: AuthScreen,
 
-    main: createBottomTabNavigator({
-      map: MapScreen,
+    main: createBottomTabNavigator(
+      {
+        map: MapScreen,
 
-      deck: DeckScreen,
+        deck: DeckScreen,
 
-      review: ReviewNavigator
-    })
+        review: {
+          screen: ReviewNavigator,
+          navigationOptions: {
+            tabBarLabel: "Review",
+
+            tabBarIcon: ({ tintColor }) => (
+              <Icon name="favorite" size={30} color={tintColor} />
+            )
+          }
+        }
+      },
+      {
+        tabBarOptions: {
+          labelStyle: {
+            fontSize: 12
+          }
+        }
+      }
+    )
   },
   {
     navigationOptions: {

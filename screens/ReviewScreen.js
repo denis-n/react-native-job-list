@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, ScrollView, Linking, Platform } from "react-native";
-import { Card, Button } from "react-native-elements";
+import { Card, Button, Icon } from "react-native-elements";
 import { MapView } from "expo";
 import { connect } from "react-redux";
 
