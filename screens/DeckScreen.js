@@ -44,7 +44,8 @@ class DeckScreen extends Component {
       <Card title="No more jobs">
         <Button
           large
-          title="Return"
+          title="Back To Map"
+          icon={{ name: "my-location" }}
           backgroundColor="#009688"
           onPress={this.goToMapScreen}
         />
