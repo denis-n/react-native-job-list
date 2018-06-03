@@ -8,8 +8,9 @@ import { Constants } from "expo";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { Icon } from "react-native-elements";
+import { PersistGate } from "redux-persist/lib/integration/react";
 
-import store from "./store";
+import configureStore from "./store";
 import AuthScreen from "./screens/AuthScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import MapScreen from "./screens/MapScreen";
@@ -87,11 +88,15 @@ const MainNavigator = createBottomTabNavigator(
 );
 
 const App = () => {
+  const { store, persistor } = configureStore();
+
   return (
     <Provider store={store}>
-      <View style={styles.container}>
-        <MainNavigator />
-      </View>
+      <PersistGate persistor={persistor}>
+        <View style={styles.container}>
+          <MainNavigator />
+        </View>
+      </PersistGate>
     </Provider>
   );
 };
